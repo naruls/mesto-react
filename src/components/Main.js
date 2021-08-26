@@ -8,9 +8,9 @@ import api from '../utils/Api';
 
 function Main(props) {
 
-const [userName, setUserName] = React.useState([]);
-const [userDescription, setUserDescription] = React.useState([]);
-const [userAvatar, setUserAvatar] = React.useState([]);
+const [userName, setUserName] = React.useState('');
+const [userDescription, setUserDescription] = React.useState('');
+const [userAvatar, setUserAvatar] = React.useState('');
 const [cards , setСards ] = React.useState([]);
 
   React.useEffect(() => {
@@ -22,10 +22,7 @@ const [cards , setСards ] = React.useState([]);
       })
       .catch((err) => {
     console.log(err);
-  })
-  }, [])
-
-  React.useEffect(() => {
+  });
     api.getInitialCards()
       .then((data)=>{
       setСards([...data])
@@ -34,6 +31,7 @@ const [cards , setСards ] = React.useState([]);
       console.log(err);
     })
   }, [])
+
 
   return (
       <main className="container">
@@ -77,11 +75,11 @@ const [cards , setСards ] = React.useState([]);
   </section>
   <section className="elements background">
   </section>
-  <template id="card-template">
+  <div id="card-template">
     {cards.map(card => (
       <Card card={card} onCardClick={props.onCardClick} key={card._id}/>
     ))}
-  </template>
+  </div>
   </main>
   );
 }

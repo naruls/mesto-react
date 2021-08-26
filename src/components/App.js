@@ -15,21 +15,20 @@ const [isImagePopupOpen, setImagePopupOpen] = React.useState(false);
 const [selectedCard, setSelectedCard] = React.useState({});
 
 function handleEditAvatarClick() {
-    setEditAvatarPopupOpen(!isEditAvatarPopupOpen);
+    setEditAvatarPopupOpen(true);
 }
 function handleEditProfileClick() {
-    setEditProfilePopupOpen(!isEditProfilePopupOpen);
+    setEditProfilePopupOpen(true);
 }
 function handleAddPlaceClick() {
-    setAddPlacePopupOpen(!isAddPlacePopupOpen);
+    setAddPlacePopupOpen(true);
 }
-function handleConfirmClick() {
-    setConfirmPopupOpen(!isConfirmPopupOpen);
-}
+/*function handleConfirmClick() {
+    setConfirmPopupOpen(true);
+}*/
 function handleCardClick (card) {
     setSelectedCard(card);
-    setImagePopupOpen(!isImagePopupOpen);
-    console.log(selectedCard)
+    setImagePopupOpen(true);
 
 }
 function closeAllPopups() {
