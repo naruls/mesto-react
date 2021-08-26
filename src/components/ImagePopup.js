@@ -1,4 +1,3 @@
-import '../index.css';
 import closeIcon from '../images/Close_Icon.svg';
 
 function ImagePopup(props) {

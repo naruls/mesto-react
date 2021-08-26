@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 import PopupWithForm from './PopupWithForm.js';
 import Card from './Card.js';
 import ImagePopup from './ImagePopup.js';
