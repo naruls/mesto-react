@@ -24,7 +24,7 @@ export class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
-        about: data.description
+        about: data.about
       })
     }).then(this._getResponseData)
   }
@@ -34,7 +34,7 @@ export class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: data.avatarDescription
+        avatar: data.avatar
       })
     }).then(this._getResponseData)
   }
@@ -44,31 +44,39 @@ export class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: data.mestoName,
-        link: data.mestoDescription
+        name: data.name,
+        link: data.link
       })
     }).then(this._getResponseData)
   }
 
   likeCard(data) {
-  return fetch(`${this._baseUrl}/cards/likes/${data._id}`, {
+  return fetch(`${this._baseUrl}/cards/likes/${data}`, {
       method: 'PUT',
       headers: this._headers,
     }).then(this._getResponseData)
   }
 
   dislikeCard(data) {
-  return fetch(`${this._baseUrl}/cards/likes/${data._id}`, {
+  return fetch(`${this._baseUrl}/cards/likes/${data}`, {
       method: 'DELETE',
       headers: this._headers,
     }).then(this._getResponseData)
   }
   
   deleteCard(data) {
-  return fetch(`${this._baseUrl}/cards/${data._id}`, {
+  return fetch(`${this._baseUrl}/cards/${data}`, {
       method: 'DELETE',
       headers: this._headers
     }).then(this._getResponseData)
+  }
+
+  changeLikeCardStatus(data, isLiked) {
+    if (isLiked) {
+      return this.likeCard(data);
+    } else {
+      return this.dislikeCard(data);
+    }
   }
 
   _getResponseData(res) {
