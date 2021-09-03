@@ -1,9 +1,9 @@
 
 function Header() {
   return (
-      <header className="header background">
-        <div className="header__logo"></div>
-      </header>
+    <header className="header background">
+      <div className="header__logo"></div>
+    </header>
   );
 }
 
