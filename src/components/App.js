@@ -140,6 +140,7 @@ function App() {
         onCardClick={handleCardClick}
         onClose={closeAllPopups}
         cards={cards}
+        isImageOpen={isImagePopupOpen}
         onCardLike={handleCardLike}
         onCardDelete={handleCardDelete}
         card={selectedCard}/>
